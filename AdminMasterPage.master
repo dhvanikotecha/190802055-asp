@@ -32,6 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="src/js/morris.js"></script>
 </head>
 <body>
+<form runat="server">
     <section id="container">
 <!--header start-->
 <header class="header fixed-top clearfix">
@@ -233,13 +234,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="src/images/2.png">
-                <span class="username">John Doe</span>
+                <asp:Literal ID="Literal1" runat="server"></asp:Literal>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
                 <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                 <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                <li><asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click"><i class="fa fa-key"></i>Log Out</asp:LinkButton></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -455,5 +456,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
     </script>
     <!-- //calendar -->
+    </form>
 </body>
 </html>

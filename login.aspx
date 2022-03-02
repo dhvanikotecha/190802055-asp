@@ -27,16 +27,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
     <div class="log-w3">
         <div class="w3layouts-main">
-            <h2>
-                Sign In Now</h2>
+            <h2>Sign In Now</h2>
             <form id="form1" runat="server">
             <asp:TextBox ID="TextBox1" runat="server" class="ggg" name="Email" 
                 placeholder="E-MAIL" Width="572px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                ControlToValidate="TextBox1" ErrorMessage="Please Enter Name*" 
+                ControlToValidate="TextBox1" ErrorMessage="Please Enter Email*" 
                 ForeColor="Red" Width="417px"></asp:RequiredFieldValidator>
             <asp:TextBox ID="TextBox2" runat="server" class="ggg" name="Password" 
-                placeholder="PASSWORD" Width="572px"></asp:TextBox>
+                placeholder="PASSWORD" Width="572px" TextMode="Password"></asp:TextBox>
             <br />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                 ControlToValidate="TextBox2" Display="Dynamic" 
