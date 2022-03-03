@@ -311,6 +311,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="mail_compose.html">Compose Mail</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="ManageUsers.aspx">
+                        <i class="fa fa-user"></i>
+                        <span>Manage Users</span>
+                    </a>
+                </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class=" fa fa-bar-chart-o"></i>
@@ -357,6 +363,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <section id="main-content">
 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+</section>
+<section id="main-content">
+<asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
 </section>
 <!--main content end-->
 
