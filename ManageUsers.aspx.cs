@@ -42,10 +42,22 @@ public partial class Default2 : System.Web.UI.Page
         TextBox3.Text = dt.Rows[0][1].ToString();
         TextBox1.Text = dt.Rows[0][2].ToString();
         TextBox2.Text = dt.Rows[0][3].ToString();
+        ViewState["id"] = btn.CommandArgument;
         print();
     }
     protected void Button3_Click(object sender, EventArgs e)
     {
-
+        SqlCommand cmd = new SqlCommand("UPDATE [Table1] SET [name] = @name, [email] = @email, [pwd] = @pwd WHERE [id] = @id", con);
+        cmd.Parameters.AddWithValue("@id", ViewState["id"]);
+        cmd.Parameters.AddWithValue("@name", TextBox3.Text);
+        cmd.Parameters.AddWithValue("@email", TextBox1.Text);
+        cmd.Parameters.AddWithValue("@pwd", TextBox2.Text);
+        con.Open();
+        cmd.ExecuteNonQuery();
+        con.Close();
+        print();
+        TextBox1.Text = "";
+        TextBox2.Text = "";
+        TextBox3.Text = "";
     }
 }
