@@ -72,42 +72,21 @@
           </h3>
         </div>
         <div class="grid mt-0">
-          <div class="w3l-feature-6-gd">
+        <asp:Repeater ID="Repeater1" runat="server">
+        <ItemTemplate>
+        <div class="w3l-feature-6-gd">
             <div class="icon"><span class="fa fa-building-o"></span></div>
             <div class="w3l-feature-6-gd-info">
-              <h3><a href="#url">Residential Design</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <h3><a href="#url"><%# Eval("title") %></a></h3>
+              <p><%# Eval("description") %></p>
             </div>
           </div>
-          <div class="w3l-feature-6-gd">
-            <div class="icon"><span class="fa fa-sitemap"></span></div>
-            <div class="w3l-feature-6-gd-info">
-              <h3><a href="#url">Commercial Design</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-          </div>
+        </ItemTemplate>
+        </asp:Repeater>
         </div>
-
-        <div class="grid">
-          <div class="w3l-feature-6-gd">
-            <div class="icon"><span class="fa fa-qrcode"></span></div>
-            <div class="w3l-feature-6-gd-info">
-              <h3><a href="#url">Corporate Design</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-          </div>
-          <div class="w3l-feature-6-gd">
-            <div class="icon"><span class="fa fa-cutlery"></span></div>
-            <div class="w3l-feature-6-gd-info">
-              <h3><a href="#url">Restaurant Design</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
-  </div>
+    </div>
 </section>
     <!--/-->
     <section class="w3l-grids1">

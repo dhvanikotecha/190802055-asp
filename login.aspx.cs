@@ -32,7 +32,7 @@ public partial class login : System.Web.UI.Page
             Session["email"] = TextBox1.Text;
             TextBox1.Text = String.Empty;
             TextBox2.Text = String.Empty;
-            Response.Redirect("~/Default.aspx");
+            Response.Redirect("~/Dashboard.aspx");
         }
         else
         {
