@@ -312,6 +312,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
                 <li>
+                    <a href="ManageContactUs.aspx">
+                        <i class="fa fa-users"></i>
+                        <span>Manage Contact Us</span>
+                    </a>
+                </li>
+                <li>
                     <a href="ManageService.aspx">
                         <i class="fa fa-tasks"></i>
                         <span>Manage Services</span>

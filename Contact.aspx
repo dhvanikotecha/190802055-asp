@@ -27,25 +27,32 @@
             <h3 class="hny-title mb-lg-5 mb-4">
                 Get in touch</h3>
             <div class="contacts12-main mb-5">
-                <form action="https://sendmail.w3layouts.com/submitForm" method="post">
                 <div class="main-input">
                     <div class="d-grid">
-                        <input type="text" name="w3lName" id="w3lName" placeholder="Your Name" class="contact-input" />
-                        <input type="text" name="w3lPhone" id="w3lPhone" placeholder="Phone Number" class="contact-input" />
+                        <asp:TextBox ID="TextBox1" runat="server" placeholder="Your Name" class="contact-input" ControlToValidate="TextBox1"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                            ErrorMessage="Please Enter Name*" Display="Dynamic" 
+                            ControlToValidate="TextBox1" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="TextBox2" runat="server" placeholder="Phone Number" class="contact-input" ControlToValidate="TextBox2"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                            ErrorMessage="Please Enter Phone No.*" Display="Dynamic" 
+                            ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                     <div class="d-grid">
-                        <input type="email" name="w3lSender" id="w3lSender" placeholder="Your Email id" class="contact-input"
-                            required />
-                        <input type="text" name="w3lSubject" id="w3lSubject" placeholder="Subject" class="contact-input" />
+                        <asp:TextBox ID="TextBox3" runat="server" placeholder="Your Email id" class="contact-input"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
+                            ErrorMessage="Please Enter Email*" Display="Dynamic" 
+                            ControlToValidate="TextBox3" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="TextBox4" runat="server" placeholder="Message" class="contact-input"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
+                            Display="Dynamic" ErrorMessage="Please Enter Some Message*" 
+                            ControlToValidate="TextBox4" ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                 </div>
-                <textarea class="contact-textarea" name="w3lMessage" id="w3lMessage" placeholder="Type your message here"
-                    required></textarea>
                 <div class="text-right">
-                    <button class="btn btn-style btn-primary btn-contact">
-                        Submit Now</button>
+                    <asp:Button ID="Button1" runat="server" Text="Submit Now" 
+                    class="btn btn-style btn-primary btn-contact" onclick="Button1_Click"/>
                 </div>
-                </form>
             </div>
             <div class="row pt-lg-4">
                 <div class="col-md-12">
@@ -86,4 +93,6 @@
             frameborder="0" style="border: 0" allowfullscreen=""></iframe>
     </div>
     <!--//contact-->
+    <br />
+    </span>
 </asp:Content>
