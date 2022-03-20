@@ -37,6 +37,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                             ErrorMessage="Please Enter Phone No.*" Display="Dynamic" 
                             ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Only 10 digits allowed*" ControlToValidate="TextBox2" Display="Dynamic" ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
                     </div>
                     <div class="d-grid">
                         <asp:TextBox ID="TextBox3" runat="server" placeholder="Your Email id" class="contact-input"></asp:TextBox>

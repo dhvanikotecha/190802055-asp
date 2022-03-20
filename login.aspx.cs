@@ -21,24 +21,31 @@ public partial class login : System.Web.UI.Page
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
-        SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [Table1] where [email] = @email AND [pwd] = @password", con);
-        cmd.Parameters.AddWithValue("@email",TextBox1.Text);
-        cmd.Parameters.AddWithValue("@password", TextBox2.Text);
-        con.Open();
-        int s = (int)cmd.ExecuteScalar();
-        con.Close();
-        if (s == 1)
+        try
         {
-            Session["email"] = TextBox1.Text;
-            TextBox1.Text = String.Empty;
-            TextBox2.Text = String.Empty;
-            Response.Redirect("~/Dashboard.aspx");
+            SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM [Table1] WHERE [email]=@email AND [pwd]=@pwd",con);
+            cmd.Parameters.AddWithValue("@email",TextBox1.Text);
+            cmd.Parameters.AddWithValue("@pwd", TextBox2.Text);
+            con.Open();
+            int s = (int)cmd.ExecuteScalar();
+            if (s==1)
+            {
+                Session["email"] = TextBox1.Text;
+                TextBox1.Text = String.Empty;
+                TextBox2.Text = String.Empty;
+                Response.Redirect("~/Dashboard.aspx");
+            }
+            else
+            {
+                TextBox1.Text = String.Empty;
+                TextBox2.Text = String.Empty;
+                Literal1.Text="Invalid Username or Password";
+            }
+            con.Close();
         }
-        else
+        catch (SqlException ex)
         {
-            Literal1.Text = "Invalid email and password!!";
-            TextBox1.Text = String.Empty;
-            TextBox2.Text = String.Empty;
+            Response.Write("<script>alert('" + ex.ToString() + "')</script>");
         }
     }
 }

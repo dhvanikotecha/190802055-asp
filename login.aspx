@@ -2,9 +2,9 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
@@ -27,41 +27,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
     <div class="log-w3">
         <div class="w3layouts-main">
-            <h2>Sign In Now</h2>
+            <h2>
+                Sign In Now</h2>
             <form id="form1" runat="server">
-            <asp:TextBox ID="TextBox1" runat="server" class="ggg" name="Email" 
-                placeholder="E-MAIL" Width="572px"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                ControlToValidate="TextBox1" ErrorMessage="Please Enter Email*" 
-                ForeColor="Red" Width="417px"></asp:RequiredFieldValidator>
-            <asp:TextBox ID="TextBox2" runat="server" class="ggg" name="Password" 
-                placeholder="PASSWORD" Width="572px" TextMode="Password"></asp:TextBox>
-            <br />
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
-                ControlToValidate="TextBox2" Display="Dynamic" 
-                ErrorMessage="Please Enter Password*" ForeColor="Red" Width="738px"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="TextBox1" runat="server" class="ggg" placeholder="E-MAIL" Width="360px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter Email*"
+                ControlToValidate="TextBox1" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:TextBox ID="TextBox2" runat="server" class="ggg" name="Password" placeholder="PASSWORD"
+                TextMode="Password" Width="360px"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Password*"
+                ControlToValidate="TextBox2" ForeColor="Red"></asp:RequiredFieldValidator>
             <div class="clearfix">
             </div>
-            <span>
-                <input type="checkbox" />Remember Me</span>
-            <h6>
-                <a href="#">Forgot Password?</a></h6>
-            <div class="clearfix">
-            </div>
-            <asp:Button ID="Button1" runat="server" Text="Sign In" OnClick="Button1_Click" />
+            <asp:Button ID="Button1" runat="server" Text="SIGN IN" OnClick="Button1_Click" />
             <asp:Literal ID="Literal1" runat="server"></asp:Literal>
-            <br />
             <p>
                 Don't Have an Account ?<a href="registration.aspx">Create an account</a></p>
             </form>
         </div>
     </div>
+    <script src="src/js/bootstrap.js"></script>
+    <script src="src/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="src/js/scripts.js"></script>
+    <script src="src/js/jquery.slimscroll.js"></script>
+    <script src="src/js/jquery.nicescroll.js"></script>
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="src/js/flot-chart/excanvas.min.js"></script><![endif]-->
+    <script src="src/js/jquery.scrollTo.js"></script>
 </body>
-<script src="src/js/bootstrap.js"></script>
-<script src="src/js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="src/js/scripts.js"></script>
-<script src="src/js/jquery.slimscroll.js"></script>
-<script src="src/js/jquery.nicescroll.js"></script>
-<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="src/js/flot-chart/excanvas.min.js"></script><![endif]-->
-<script src="src/js/jquery.scrollTo.js"></script>
 </html>

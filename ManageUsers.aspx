@@ -33,7 +33,7 @@
                             </form>
                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                                     BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
-                                    CellPadding="4" ForeColor="Black" GridLines="Vertical" Width="532px">
+                                    CellPadding="4" ForeColor="Black" Width="532px">
                                     <AlternatingRowStyle BackColor="White" />
                                     <Columns>
                                         <asp:TemplateField HeaderText="ID">
@@ -71,8 +71,9 @@
                                     </Columns>
                                     <FooterStyle BackColor="#CCCC99" />
                                     <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
-                                    <RowStyle BackColor="#F7F7DE" />
+                                    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Center" 
+                                        VerticalAlign="Middle" />
+                                    <RowStyle BackColor="#F7F7DE" HorizontalAlign="Center" VerticalAlign="Middle" />
                                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
                                     <SortedAscendingCellStyle BackColor="#FBFBF2" />
                                     <SortedAscendingHeaderStyle BackColor="#848384" />

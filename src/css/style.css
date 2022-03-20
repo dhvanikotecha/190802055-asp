@@ -2363,8 +2363,9 @@ ul.inbox-pagination li {
 	    text-align: center;
 }
 .w3layouts-main {
-    width: 90%;
+    width: 30%;
     margin:5em auto;
+    background:rgba(171, 119, 157, 0.27);
     padding: 42px 35px;
 }
 /*--//header--*/

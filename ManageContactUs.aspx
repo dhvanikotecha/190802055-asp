@@ -41,6 +41,11 @@
                                             <asp:Literal ID="Literal5" runat="server" Text='<%# Eval("email") %>'></asp:Literal>
                                         </ItemTemplate>
                                     </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Message">
+                                        <ItemTemplate>
+                                            <asp:Literal ID="Literal6" runat="server" Text='<%# Eval("message") %>'></asp:Literal>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                 </Columns>
                                 <FooterStyle BackColor="#CCCC99" />
                                 <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
