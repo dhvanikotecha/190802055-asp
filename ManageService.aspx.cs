@@ -18,6 +18,9 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         print();
+        Literal7.Text = "";
+        Literal8.Text = "";
+        Literal9.Text = "";
     }
     public void print()
     {
@@ -35,60 +38,96 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Button1.Text == "Update")
         {
-            SqlCommand cmd = new SqlCommand("UPDATE [service] SET [title] = @title, [description] = @description, [status] = @status WHERE [id] = @id", con);
-            cmd.Parameters.AddWithValue("@title", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@description", TextBox2.Text);
-            cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
-            cmd.Parameters.AddWithValue("@id",ViewState["service_id"]);
-            con.Open();
-            int s = cmd.ExecuteNonQuery();
-            con.Close();
-            if (s == 1)
+            if (TextBox1.Text == String.Empty || TextBox2.Text == String.Empty || RadioButtonList1.SelectedItem == null)
             {
-                Literal2.Text = "Record Updated Successfully";
-                Button1.Text = "Submit";
-                TextBox1.Text = "";
-                TextBox2.Text = "";
-                RadioButtonList1.ClearSelection();
-                Literal2.Text = ""; 
+                if (TextBox1.Text == String.Empty)
+                {
+                    Literal7.Text = "<span style='color:red'> Please Enter Title* </span>";
+                }
+                if (TextBox2.Text == String.Empty)
+                {
+                    Literal8.Text = "<span style='color:red'> Please Enter Description* </span>";
+                }
+                if (RadioButtonList1.SelectedItem == null)
+                {
+                    Literal9.Text = "<span style='color:red'> Please Select Status* </span>";
+                }
             }
             else
             {
-                Literal2.Text = "Error!";
-                Button1.Text = "Submit";
-                TextBox1.Text = "";
-                TextBox2.Text = "";
-                RadioButtonList1.ClearSelection();
-                Literal2.Text = "";     
+                SqlCommand cmd = new SqlCommand("UPDATE [service] SET [title] = @title, [description] = @description, [status] = @status WHERE [id] = @id", con);
+                cmd.Parameters.AddWithValue("@title", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@description", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
+                cmd.Parameters.AddWithValue("@id", ViewState["service_id"]);
+                con.Open();
+                int s = cmd.ExecuteNonQuery();
+                con.Close();
+                if (s == 1)
+                {
+                    Literal2.Text = "Record Updated Successfully";
+                    Button1.Text = "Submit";
+                    TextBox1.Text = "";
+                    TextBox2.Text = "";
+                    RadioButtonList1.ClearSelection();
+                    Literal2.Text = "";
+                }
+                else
+                {
+                    Literal2.Text = "Error!";
+                    Button1.Text = "Submit";
+                    TextBox1.Text = "";
+                    TextBox2.Text = "";
+                    RadioButtonList1.ClearSelection();
+                    Literal2.Text = "";
+                }
+                print();
             }
-            print();
         }
         else
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [service] ([title], [description], [status]) VALUES (@title, @description, @status)", con);
-            cmd.Parameters.AddWithValue("@title", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@description", TextBox2.Text);
-            cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
-            con.Open();
-            int s = cmd.ExecuteNonQuery();
-            con.Close();
-            if (s == 1)
+            if (TextBox1.Text == String.Empty || TextBox2.Text == String.Empty || RadioButtonList1.SelectedItem == null)
             {
-                Literal2.Text = "Record Inserted Successfully";
-                TextBox1.Text = "";
-                TextBox2.Text = "";
-                RadioButtonList1.ClearSelection();
-                Literal2.Text = "";
+                if (TextBox1.Text == String.Empty)
+                {
+                    Literal7.Text = "<span style='color:red'> Please Enter Title* </span>";
+                }
+                if (TextBox2.Text == String.Empty)
+                {
+                    Literal8.Text = "<span style='color:red'> Please Enter Description* </span>";
+                }
+                if (RadioButtonList1.SelectedItem == null)
+                {
+                    Literal9.Text = "<span style='color:red'> Please Select Status* </span>";
+                }
             }
             else
             {
-                Literal2.Text = "Error!";
-                TextBox1.Text = "";
-                TextBox2.Text = "";
-                RadioButtonList1.ClearSelection();
-                Literal2.Text = "";
+                SqlCommand cmd = new SqlCommand("INSERT INTO [service] ([title], [description], [status]) VALUES (@title, @description, @status)", con);
+                cmd.Parameters.AddWithValue("@title", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@description", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
+                con.Open();
+                int s = cmd.ExecuteNonQuery();
+                con.Close();
+                if (s == 1)
+                {
+                    Literal2.Text = "Record Inserted Successfully";
+                    TextBox1.Text = "";
+                    TextBox2.Text = "";
+                    RadioButtonList1.ClearSelection();
+                    Literal2.Text = "";
+                }
+                else
+                {
+                    Literal2.Text = "Error!";
+                    TextBox1.Text = "";
+                    TextBox2.Text = "";
+                    RadioButtonList1.ClearSelection();
+                    Literal2.Text = "";
+                }
+                print();
             }
-            print();
         }
     }
 

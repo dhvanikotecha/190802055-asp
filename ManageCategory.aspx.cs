@@ -19,6 +19,8 @@ public partial class _Default : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         print();
+        Literal6.Text = "";
+        Literal7.Text = "";
     }
     public void print()
     {
@@ -32,50 +34,80 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Button1.Text=="Update")
         {
-            SqlCommand cmd = new SqlCommand("UPDATE [category] SET [category] = @category, [status] = @status WHERE [id] = @id", con);
-            cmd.Parameters.AddWithValue("@category", TextBox1.Text);
-            cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
-            cmd.Parameters.AddWithValue("@id", ViewState["category_id"]);
-            con.Open();
-            int s = cmd.ExecuteNonQuery();
-            con.Close();
-            if (s == 1)
+            if (TextBox1.Text == String.Empty || RadioButtonList1.SelectedItem == null)
             {
-                Literal2.Text = "Record Updated Successfully";
-                Button1.Text = "Submit";
-                TextBox1.Text = "";
-                RadioButtonList1.ClearSelection();
+                if (TextBox1.Text == String.Empty)
+                {
+                    Literal6.Text = "<span style='color:red'> Please Enter Category* </span>";
+                }
+                if (RadioButtonList1.SelectedItem == null)
+                {
+                    Literal7.Text = "<span style='color:red'> Please Select Status* </span>";
+                }
             }
             else
             {
-                Literal2.Text = "Error!";
-                Button1.Text = "Submit";
-                TextBox1.Text = "";
-                RadioButtonList1.ClearSelection();
+                SqlCommand cmd = new SqlCommand("UPDATE [category] SET [category] = @category, [status] = @status WHERE [id] = @id", con);
+                cmd.Parameters.AddWithValue("@category", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
+                cmd.Parameters.AddWithValue("@id", ViewState["category_id"]);
+                con.Open();
+                int s = cmd.ExecuteNonQuery();
+                con.Close();
+                if (s == 1)
+                {
+                    Literal2.Text = "Record Updated Successfully";
+                    Button1.Text = "Submit";
+                    TextBox1.Text = "";
+                    RadioButtonList1.ClearSelection();
+                }
+                else
+                {
+                    Literal2.Text = "Error!";
+                    Button1.Text = "Submit";
+                    TextBox1.Text = "";
+                    RadioButtonList1.ClearSelection();
+                }
+                print();
             }
-            print();
         }
         else
         {
-            SqlCommand cmd = new SqlCommand("INSERT INTO [category] ([category], [status]) VALUES (@category, @status)", con);
-            cmd.Parameters.AddWithValue("@category",TextBox1.Text);
-            cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
-            con.Open();
-            int s=cmd.ExecuteNonQuery();
-            con.Close();
-            if (s==1)
+            if (TextBox1.Text == String.Empty || RadioButtonList1.SelectedItem == null)
             {
-                Literal2.Text = "Record Inserted Successfully";
-                TextBox1.Text = "";
-                RadioButtonList1.ClearSelection();
+                if (TextBox1.Text == String.Empty)
+                {
+                    Literal6.Text = "<span style='color:red'> Please Enter Category* </span>";
+                }
+                if (RadioButtonList1.SelectedItem == null)
+                {
+                    Literal7.Text = "<span style='color:red'> Please Select Status* </span>";    
+                } 
             }
             else
             {
-                Literal2.Text = "Error!";
-                TextBox1.Text = "";
-                RadioButtonList1.ClearSelection();
+                SqlCommand cmd = new SqlCommand("INSERT INTO [category] ([category], [status]) VALUES (@category, @status)", con);
+                cmd.Parameters.AddWithValue("@category", TextBox1.Text);
+                cmd.Parameters.AddWithValue("@status", RadioButtonList1.SelectedValue);
+                con.Open();
+                int s = cmd.ExecuteNonQuery();
+                con.Close();
+                if (s == 1)
+                {
+                    Literal2.Text = "Record Inserted Successfully";
+                    TextBox1.Text = "";
+                    RadioButtonList1.ClearSelection();
+                    Literal2.Text = "";
+                }
+                else
+                {
+                    Literal2.Text = "Error!";
+                    TextBox1.Text = "";
+                    RadioButtonList1.ClearSelection();
+                    Literal2.Text = "";
+                }
+                print();
             }
-            print();
         }
     }
     protected void Button2_Click(object sender, EventArgs e)
@@ -91,12 +123,14 @@ public partial class _Default : System.Web.UI.Page
             Literal2.Text = "Record Deleted Successfully";
             TextBox1.Text = "";
             RadioButtonList1.ClearSelection();
+            Literal2.Text = "";
         }
         else
         {
             Literal2.Text = "Error!";
             TextBox1.Text = "";
             RadioButtonList1.ClearSelection();
+            Literal2.Text = "";
         }
         print();
     }

@@ -20,15 +20,22 @@
                                     <label for="exampleInputEmail1">Product Name</label>
                                     <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Enter title"></asp:TextBox>                               
                                     <br />
+                                    <asp:Literal ID="Literal8" runat="server"></asp:Literal>
+                                    <br />
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Description</label>
                                     <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Enter title"></asp:TextBox>                               
                                     <br />
+                                    <asp:Literal ID="Literal9" runat="server"></asp:Literal>
+                                    <br />
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Product Category</label><br />
                                     <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>                              
+                                    <br />
+                                    <br />
+                                    <asp:Literal ID="Literal10" runat="server"></asp:Literal>
                                     <br />
                                 </div>
                                 <div class="form-group">
@@ -39,11 +46,15 @@
                                         <asp:ListItem Value="1">Active </asp:ListItem>
                                         <asp:ListItem Value="0">Deactive</asp:ListItem>
                                     </asp:RadioButtonList>
+                                    <br />
+                                    <asp:Literal ID="Literal11" runat="server"></asp:Literal>
                                     <br/>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Select Image</label>
                                     <asp:FileUpload ID="FileUpload1" class="form-control" runat="server"></asp:FileUpload>
+                                    <br />
+                                    <asp:Literal ID="Literal12" runat="server"></asp:Literal>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">Product Image</label>

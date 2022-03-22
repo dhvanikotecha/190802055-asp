@@ -22,6 +22,12 @@ public partial class _Default : System.Web.UI.Page
             binddropdown();
             print();
         }
+        Literal8.Text = "";
+        Literal9.Text = "";
+        Literal10.Text = "";
+        Literal11.Text = "";
+        Literal12.Text = "";
+        DropDownList1.Items[0].Attributes["disabled"] = "disabled";
     }
     public void binddropdown()
     {
@@ -32,6 +38,9 @@ public partial class _Default : System.Web.UI.Page
         DropDownList1.DataTextField = "category";
         DropDownList1.DataValueField = "id";
         DropDownList1.DataBind();
+        DropDownList1.Items[0].Text = "Please Select Category";
+        DropDownList1.Items[0].Selected = true;
+        DropDownList1.Items[0].Attributes["disabled"] = "disabled";
     }
     public void print()
     {
@@ -45,7 +54,7 @@ public partial class _Default : System.Web.UI.Page
     {
         TextBox1.Text = string.Empty;
         TextBox2.Text = string.Empty;
-        DropDownList1.SelectedIndex = -1;
+        DropDownList1.SelectedIndex = 0;
         RadioButtonList1.ClearSelection();
         FileUpload1.Attributes.Clear();
         Image3.ImageUrl = string.Empty;
@@ -55,7 +64,30 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Button1.Text == "Submit")
         {
-            if (FileUpload1.HasFile)
+            if (TextBox1.Text == String.Empty || TextBox2.Text == String.Empty || DropDownList1.SelectedIndex == 0 || RadioButtonList1.SelectedItem == null || !FileUpload1.HasFile)
+            {
+                if (TextBox1.Text == String.Empty)
+                {
+                    Literal8.Text = "<span style='color:red'> Please Enter Product Name* </span>";
+                }
+                if (TextBox2.Text == String.Empty)
+                {
+                    Literal9.Text = "<span style='color:red'> Please Enter Description* </span>";
+                }
+                if (DropDownList1.SelectedIndex == 0)
+                {
+                    Literal10.Text = "<span style='color:red'> Please Select Category* </span>";
+                }
+                if (RadioButtonList1.SelectedItem == null)
+                {
+                    Literal11.Text = "<span style='color:red'> Please Select Status* </span>";
+                }
+                if (!FileUpload1.HasFile)
+                {
+                    Literal12.Text = "<span style='color:red'> Please Select Image* </span>";
+                }
+            }
+            else
             {
                 FileUpload1.SaveAs(Server.MapPath("~/uploads/" + FileUpload1.FileName));
                 SqlCommand cmd = new SqlCommand("INSERT INTO [product] ([product_name], [product_description], [product_cat_id], [product_status], [image]) VALUES (@product_name, @product_description, @product_cat_id, @product_status, @image)", con);
@@ -79,14 +111,33 @@ public partial class _Default : System.Web.UI.Page
                 }
                 clear();
             }
-            else
-            {
-                Literal2.Text = "Please select Image!";
-            }
         }
         else
         {
-            if (FileUpload1.HasFile)
+            if (TextBox1.Text == String.Empty || TextBox2.Text == String.Empty || DropDownList1.SelectedIndex == 0 || RadioButtonList1.SelectedItem == null || !FileUpload1.HasFile)
+            {
+                if (TextBox1.Text == String.Empty)
+                {
+                    Literal8.Text = "<span style='color:red'> Please Enter Product Name* </span>";
+                }
+                if (TextBox2.Text == String.Empty)
+                {
+                    Literal9.Text = "<span style='color:red'> Please Enter Description* </span>";
+                }
+                if (DropDownList1.SelectedIndex == 0)
+                {
+                    Literal10.Text = "<span style='color:red'> Please Select Category* </span>";
+                }
+                if (RadioButtonList1.SelectedItem == null)
+                {
+                    Literal11.Text = "<span style='color:red'> Please Select Status* </span>";
+                }
+                if (!FileUpload1.HasFile)
+                {
+                    Literal12.Text = "<span style='color:red'> Please Select Image* </span>";
+                }
+            }
+            else
             {
                 SqlCommand cmd = new SqlCommand("UPDATE [product] SET [product_name] = @product_name, [product_description] = @product_description, [product_cat_id] = @product_cat_id, [product_status] = @product_status, [image] = @image WHERE [product_id] = @product_id", con);
                 cmd.Parameters.AddWithValue("@product_name", TextBox1.Text);
@@ -110,10 +161,6 @@ public partial class _Default : System.Web.UI.Page
                     Literal2.Text = "Error!!";
                 }
                 clear();
-            }
-            else
-            {
-                Literal2.Text = "Please select Image!";
             }
         }
     }
@@ -139,7 +186,7 @@ public partial class _Default : System.Web.UI.Page
     protected void Button3_Click(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
-        SqlDataAdapter adpt = new SqlDataAdapter("SELECT [product_id], [product_name], [product_description], [product_cat_id], [product_status], [image] FROM [product] WHERE [product_id] = "+btn.CommandArgument, con);
+        SqlDataAdapter adpt = new SqlDataAdapter("SELECT [product_id], [product_name], [product_description], [product_cat_id], [product_status], [image] FROM [product] WHERE [product_id] = " + btn.CommandArgument, con);
         DataTable dt = new DataTable();
         adpt.Fill(dt);
         TextBox1.Text = dt.Rows[0][1].ToString();
@@ -149,5 +196,6 @@ public partial class _Default : System.Web.UI.Page
         Image3.ImageUrl = "~/uploads/" + dt.Rows[0][5].ToString();
         ViewState["product_id"] = btn.CommandArgument;
         Button1.Text = "Update";
+        DropDownList1.Items[0].Attributes["disabled"] = "disabled";
     }
 }

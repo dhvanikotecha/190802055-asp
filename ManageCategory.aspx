@@ -19,6 +19,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Category</label>
                                     <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Enter title"></asp:TextBox>                               
+                                    <asp:Literal ID="Literal6" runat="server"></asp:Literal>
                                     <br />
                                 </div>
                                 <div class="form-group">
@@ -29,6 +30,7 @@
                                         <asp:ListItem Value="1">Active </asp:ListItem>
                                         <asp:ListItem Value="0"> Deactive</asp:ListItem>
                                     </asp:RadioButtonList>
+                                    <asp:Literal ID="Literal7" runat="server"></asp:Literal>
                                     <br />
                                     <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                                     <br />

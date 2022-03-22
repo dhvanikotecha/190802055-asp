@@ -19,11 +19,15 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Title</label>
                                     <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Enter title"></asp:TextBox>                               
+                                    <br />
+                                    <asp:Literal ID="Literal7" runat="server"></asp:Literal>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Descriptiion</label>
                                     <asp:TextBox ID="TextBox2" runat="server" class="form-control" 
                                         placeholder="Enter Description" Rows="5" TextMode="MultiLine"></asp:TextBox>                               
+                                    <br />
+                                    <asp:Literal ID="Literal8" runat="server"></asp:Literal>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Status</label>
@@ -34,6 +38,8 @@
                                         <asp:ListItem Value="1">Active </asp:ListItem>
                                         <asp:ListItem Value="0"> Deactive</asp:ListItem>
                                     </asp:RadioButtonList>
+                                    <br />
+                                    <asp:Literal ID="Literal9" runat="server"></asp:Literal>
                                     <br />
                                     <asp:Literal ID="Literal2" runat="server"></asp:Literal>
                                     <br />
